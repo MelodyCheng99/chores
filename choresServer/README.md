@@ -29,7 +29,7 @@ POST request to http://127.0.0.1:8000/user/validate_user with the following body
 ```
 
 {
-    'username': '<insert-username-here>',
+    'username_or_email': '<insert-username-or-email-here>',
     'password': '<insert-password-here>'
 }
 ```
