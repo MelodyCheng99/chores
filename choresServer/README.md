@@ -33,3 +33,20 @@ POST request to http://127.0.0.1:8000/user/validate_user with the following body
     'password': '<insert-password-here>'
 }
 ```
+will return either a 201 status code if a user with the given username & password exists
+and a 401 status code otherwise
+
+GET request to http://127.0.0.1:8000/tasks/all will return data in the following format
+```
+[
+    {
+        'room': '<name-of-room>',
+        'task': '<name-of-task>
+    },
+    {
+        'room': '<name-of-room>',
+        'task': '<name-of-task>
+    },
+    ...
+]
+```
