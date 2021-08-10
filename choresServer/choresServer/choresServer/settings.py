@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p-^%bhgwl81(1kq3=9a*)7$!mxk=4v&frul^8c*9uzjmud%x!3'
+SECRET_KEY = 'django-insecure-m965i#^jr@5$k=fk@8i+hf+ceniyh6e2h87ou76n-n#xsja-r%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -75,8 +75,8 @@ WSGI_APPLICATION = 'choresServer.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'choresServer',
     }
 }
 
