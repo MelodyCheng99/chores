@@ -34,7 +34,14 @@ POST request to http://127.0.0.1:8000/user/validate_user with the following body
 }
 ```
 will return either a 200 status code if a user with the given username & password exists
-and a 401 status code otherwise
+and a 401 status code otherwise. If the request returns a 200 status code, it will also return data in the following format:
+```
+{
+    'id': '<id>',
+    'first_name': '<first_name>',
+    'last_name': '<last_name>'
+}
+```
 
 GET request to http://127.0.0.1:8000/tasks/all will return data in the following format
 ```
