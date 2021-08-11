@@ -18,12 +18,20 @@ def validate_user(request):
         try:
             user = User.objects.get(username=username_or_email)
             if user.check_password(password):
-                return Response({}, status=status.HTTP_200_OK)
+                return Response({
+                    'id': getattr(user, 'id'),
+                    'first_name': getattr(user, 'first_name'),
+                    'last_name': getattr(user, 'last_name')
+                }, status=status.HTTP_200_OK)
         except User.DoesNotExist:
             try:
                 user = User.objects.get(email=username_or_email)
                 if user.check_password(password):
-                    return Response({}, status=status.HTTP_200_OK)
+                    return Response({
+                        'id': getattr(user, 'id'),
+                        'first_name': getattr(user, 'first_name'),
+                        'last_name': getattr(user, 'last_name')
+                    }, status=status.HTTP_200_OK)
             except User.DoesNotExist:
                 return Response({}, status=status.HTTP_401_UNAUTHORIZED)
 
