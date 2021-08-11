@@ -10,7 +10,6 @@ from rest_framework.response import Response
 @api_view(["POST"])
 def validate_user(request):
     if ('username_or_email' in request.data) and ('password' in request.data):
-
         User = get_user_model()
 
         username_or_email = request.data['username_or_email']
@@ -34,9 +33,7 @@ def validate_user(request):
                         'last_name': getattr(user, 'last_name')
                     }, status=status.HTTP_200_OK)
             except User.DoesNotExist:
-                return Response({
-
-                }, status=status.HTTP_401_UNAUTHORIZED)
+                return Response({}, status=status.HTTP_401_UNAUTHORIZED)
 
     return Response({}, status=status.HTTP_401_UNAUTHORIZED)
     
