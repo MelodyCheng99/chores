@@ -17,25 +17,34 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/welcome_message"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
             android:text="@string/welcome_message"/>
 
         <TextView
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
             android:text="@string/app_name"/>
 
         <Button
             android:id="@+id/btnSignIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="130dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="30dp"
             android:text="@string/sign_in"/>
 
         <Button
             android:id="@+id/btnSignUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="130dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="60dp"
             android:text="@string/sign_up"/>
 
     </LinearLayout>
