@@ -1,6 +1,6 @@
 *.iml
 choresClient/.gradle
-choresClient/.idea/
+choresClient/.idea
 choresClient/.DS_Store
 choresClient/build
 choresClient/captures
