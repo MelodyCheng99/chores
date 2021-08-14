@@ -1,0 +1,9 @@
+*.iml
+choresClient/.gradle
+choresClient/.idea/
+choresClient/.DS_Store
+choresClient/build
+choresClient/captures
+choresClient/.externalNativeBuild
+choresClient/.cxx
+choresClient/local.properties
