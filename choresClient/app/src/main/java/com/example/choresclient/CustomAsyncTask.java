@@ -3,6 +3,8 @@ package com.example.choresclient;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import org.json.JSONException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -53,7 +55,11 @@ public class CustomAsyncTask extends AsyncTask<String, String, String> {
         super.onPostExecute(s);
 
         if(callback != null) {
-            callback.onEventCompleted(server_response);
+            try {
+                callback.onEventCompleted(server_response);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 

@@ -2,8 +2,16 @@ package com.example.choresclient;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class Homepage extends AppCompatActivity implements CustomEventListener {
 
@@ -18,8 +26,23 @@ public class Homepage extends AppCompatActivity implements CustomEventListener {
     }
 
     @Override
-    public void onEventCompleted(String server_response) {
-        Log.v("CatalogClient", server_response);
+    public void onEventCompleted(String server_response) throws JSONException {
+        JSONArray tasksJson = new JSONArray(server_response);
+        ArrayList<String> tasksArray = new ArrayList<>();
+
+        for (int i = 0 ; i < tasksJson.length(); i++) {
+            JSONObject task = tasksJson.getJSONObject(i);
+            tasksArray.add(task.get("room") + " : " + task.get("task"));
+            Log.v("CatalogClient", task.get("room") + " : " + task.get("task"));
+        }
+
+        ArrayAdapter adapter = new ArrayAdapter<String>(
+            this,
+            R.layout.task_item,
+            tasksArray
+        );
+        ListView listView = findViewById(R.id.tasksList);
+        listView.setAdapter(adapter);
     }
 
     @Override

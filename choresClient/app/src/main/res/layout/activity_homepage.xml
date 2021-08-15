@@ -9,9 +9,8 @@
 
     <RelativeLayout
         android:id="@+id/homeHeader"
-        android:layout_width="411dp"
+        android:layout_width="match_parent"
         android:layout_height="195dp"
-        android:layout_marginBottom="431dp"
         android:background="#fece2f"
         android:padding="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,49 +20,47 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
-            android:id="@+id/profilePic"
-            android:layout_width="128dp"
-            android:layout_height="136dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="240dp"
-            android:layout_marginRight="240dp"
-            android:layout_marginBottom="5dp"
-            tools:ignore="ImageContrastCheck"
-            tools:srcCompat="@tools:sample/avatars" />
+<!--        <ImageView-->
+<!--            android:id="@+id/profilePic"-->
+<!--            android:layout_width="128dp"-->
+<!--            android:layout_height="136dp"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_marginEnd="240dp"-->
+<!--            android:layout_marginRight="240dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            tools:ignore="ImageContrastCheck"-->
+<!--            tools:srcCompat="@tools:sample/avatars" />-->
+
+        <TextView
+            android:id="@+id/welcomeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="@string/welcome_personalized"
+            tools:text="Welcome" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/todoList"
-        android:layout_width="415dp"
-        android:layout_height="77dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginBottom="457dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:background="#744598"
         android:padding="20dp"
+        android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homeHeader">
+        app:layout_constraintTop_toBottomOf="@+id/homeHeader"
+        app:layout_constraintVertical_bias="0.0">
 
-        <ExpandableListView
-            android:id="@+id/expandableListView"
+        <ListView
+            android:id="@+id/tasksList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:divider="@android:color/darker_gray"
-            android:dividerHeight="0.5dp"
-            android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft" />
-
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 
 
