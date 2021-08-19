@@ -8,7 +8,7 @@ from rest_framework.response import Response
 
 @csrf_exempt
 @api_view(["POST"])
-def validate_user(request):
+def validate_user(request): 
     if ('username_or_email' in request.data) and ('password' in request.data):
         User = get_user_model()
 
@@ -36,4 +36,12 @@ def validate_user(request):
                 return Response({}, status=status.HTTP_401_UNAUTHORIZED)
 
     return Response({}, status=status.HTTP_401_UNAUTHORIZED)
-    
+
+def create_user(request):
+    if ('username_or_email' in request.data):
+        return Response({}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+        #username/email already taken, try again
+    else:
+        #store username/email, FName, LName, Password
+        new_user = create_user(username='username_or_email', password='password', first_name='first_name', last_name='last_name')
+        return Response({}, status=status.HTTP_201_CREATED)
