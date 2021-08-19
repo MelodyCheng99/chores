@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
 from django.views.decorators.csrf import csrf_exempt
 
@@ -37,11 +38,15 @@ def validate_user(request):
 
     return Response({}, status=status.HTTP_401_UNAUTHORIZED)
 
+@csrf_exempt
+@api_view(["POST"])
 def create_user(request):
-    if ('username_or_email' in request.data):
+    if ('username' not in request.data):
         return Response({}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
         #username/email already taken, try again
     else:
         #store username/email, FName, LName, Password
-        new_user = create_user(username='username_or_email', password='password', first_name='first_name', last_name='last_name')
+        username = request.data['username']
+        new_user = User.objects.create_user(username=username)
+        #set email
         return Response({}, status=status.HTTP_201_CREATED)
