@@ -24,19 +24,20 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
 
             String email = ((EditText)findViewById(R.id.editTextSignUpEmailAddress)).getText().toString();
             String pass = ((EditText)findViewById(R.id.editTextSignUpPassword)).getText().toString();
+            String confirm_pass = ((EditText)findViewById(R.id.editTextConfirmSignUpPassword)).getText().toString();
+            String FName = ((EditText)findViewById(R.id.editTextFirstName)).getText().toString();
+            String LName = ((EditText)findViewById(R.id.editTextLastName)).getText().toString();
 
-            if(email == null || email.isEmpty() || pass == null || pass.isEmpty() ) {
-                Toast toast = Toast.makeText(getApplicationContext(), "Please enter an email and a password.", Toast.LENGTH_LONG);
+            if(email == null || email.isEmpty() || pass == null || pass.isEmpty() || FName == null || FName.isEmpty() || LName == null || LName.isEmpty() || confirm_pass == null || confirm_pass.isEmpty()){
+                Toast toast = Toast.makeText(getApplicationContext(), "Please fill missing information.", Toast.LENGTH_LONG);
                 toast.show();
             }
-
-            //sign up check
-            //check database for same email/username
-            //if unique, then add info into database
-            //if not unique, then return email taken message
-
-            else{
+            else if (pass == confirm_pass){
                 signUp = true;
+                //sign up check
+                //check database for same email/username
+                //if unique, then add info into database
+                //if not unique, then return email taken message
             }
 
             if(signUp){

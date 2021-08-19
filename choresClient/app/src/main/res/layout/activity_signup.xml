@@ -12,8 +12,8 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="40dp"
         android:text="Sign Up"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
         app:layout_constraintBottom_toTopOf="@+id/textInput1"
@@ -28,7 +28,7 @@
         android:id="@+id/textInput1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
@@ -164,6 +164,41 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/textInput5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/textInput4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" >
+
+        <TextView
+            android:id="@+id/textConfirmSignUpPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+            android:padding="15dp"
+            android:text="Confirm Password:"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/editTextConfirmSignUpPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:padding="15dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toRightOf="@+id/textSignUpPassword"/>
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/btnSignUpSignUp"
@@ -175,7 +210,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInput4"
+        app:layout_constraintTop_toBottomOf="@+id/textInput5"
         app:layout_constraintVertical_bias="0.0" />
 
 
