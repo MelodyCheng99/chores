@@ -5,7 +5,8 @@ class Task(models.Model):
     user = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        verbose_name="related user"
+        verbose_name="related user",
+        default=1
     )
     room = models.CharField(max_length=20)
     task = models.CharField(max_length=60)
