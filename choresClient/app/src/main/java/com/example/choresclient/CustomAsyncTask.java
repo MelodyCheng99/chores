@@ -24,6 +24,7 @@ import java.util.List;
 // The following code is taken from
 // https://stackoverflow.com/questions/19229204/android-waiting-for-response-from-server
 // and https://stackoverflow.com/questions/8654876/http-get-using-android-httpurlconnection
+// and https://stackoverflow.com/questions/9767952/how-to-add-parameters-to-httpurlconnection-using-post-using-namevaluepair
 
 public class CustomAsyncTask extends AsyncTask<String, String, String> {
     private final CustomEventListener callback;
