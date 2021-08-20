@@ -28,7 +28,8 @@ public class Homepage extends AppCompatActivity implements CustomEventListener {
         welcomeTextView.setText(welcomeMessage);
 
         new CustomAsyncTask(this).execute(
-            "http://10.0.0.201:8000/tasks/all"
+            "http://10.0.0.201:8000/tasks/all/" +
+                getIntent().getStringExtra("userId")
         );
     }
 
