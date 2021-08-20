@@ -2,7 +2,6 @@ package com.example.choresclient;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.PrecomputedText;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -16,7 +15,6 @@ import org.json.JSONObject;
 public class SignIn extends AppCompatActivity implements View.OnClickListener, CustomEventListener {
 
     Button signInBtn;
-    boolean login = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +55,7 @@ public class SignIn extends AppCompatActivity implements View.OnClickListener, C
             Intent home = new Intent(this, Homepage.class);
             home.putExtra("firstName", signInResponse.get("first_name").toString());
             home.putExtra("lastName", signInResponse.get("last_name").toString());
+            home.putExtra("userId", signInResponse.get("id").toString());
             startActivity(home);
         }
     }
