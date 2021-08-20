@@ -48,16 +48,18 @@ and a 401 status code otherwise. If the request returns a 200 status code, it wi
 }
 ```
 
-GET request to http://127.0.0.1:8000/tasks/all/<user_id> will return data in the following format
+GET request to http://127.0.0.1:8000/tasks/all/<user_id>?due_date=<due_date> will return data in the following format
 ```
 [
     {
         'room': '<name-of-room>',
-        'task': '<name-of-task>
+        'task': '<name-of-task>,
+        'due_date': '<due-date-of-task>'
     },
     {
         'room': '<name-of-room>',
-        'task': '<name-of-task>
+        'task': '<name-of-task>,
+        'due_date': '<due-date-of-task>'
     },
     ...
 ]
