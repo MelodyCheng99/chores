@@ -1,9 +1,9 @@
 package com.example.choresclient;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +20,13 @@ public class Homepage extends AppCompatActivity implements CustomEventListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homepage);
 
+        String firstName = getIntent().getStringExtra("firstName");
+        String lastName = getIntent().getStringExtra("lastName");
+        String welcomeMessage = getResources().getString(R.string.welcome_personalized) + " " +
+            firstName + " " + lastName + "!";
+        TextView welcomeTextView = findViewById(R.id.welcomeText);
+        welcomeTextView.setText(welcomeMessage);
+
         new CustomAsyncTask(this).execute(
             "http://10.0.0.201:8000/tasks/all"
         );
@@ -33,7 +40,6 @@ public class Homepage extends AppCompatActivity implements CustomEventListener {
         for (int i = 0 ; i < tasksJson.length(); i++) {
             JSONObject task = tasksJson.getJSONObject(i);
             tasksArray.add(task.get("room") + " : " + task.get("task"));
-            Log.v("CatalogClient", task.get("room") + " : " + task.get("task"));
         }
 
         ArrayAdapter adapter = new ArrayAdapter<String>(
