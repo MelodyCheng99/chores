@@ -11,7 +11,12 @@ Ensure you have MongoDB running.
 
 Run the following command:
 ```
-python3 manage.py runserver
+python3 manage.py runserver 0.0.0.0:8000
+```
+
+Run the following command:
+```
+python3 manage.py migrate
 ```
 
 ## Accessing Admin
@@ -43,7 +48,7 @@ and a 401 status code otherwise. If the request returns a 200 status code, it wi
 }
 ```
 
-GET request to http://127.0.0.1:8000/tasks/all will return data in the following format
+GET request to http://127.0.0.1:8000/tasks/all/<user_id> will return data in the following format
 ```
 [
     {
