@@ -29,6 +29,7 @@ import java.util.List;
 public class CustomAsyncTask extends AsyncTask<String, String, String> {
     private final CustomEventListener callback;
     String server_response;
+    int responseCode;
 
     public CustomAsyncTask(CustomEventListener cb) {
         callback = cb;
@@ -72,9 +73,11 @@ public class CustomAsyncTask extends AsyncTask<String, String, String> {
 
             urlConnection.connect();
 
-            int responseCode = urlConnection.getResponseCode();
+            responseCode = urlConnection.getResponseCode();
 
-            if(responseCode == HttpURLConnection.HTTP_OK){
+            if (responseCode != HttpURLConnection.HTTP_OK) {
+                callback.onEventFailed();
+            } else {
                 server_response = readStream(urlConnection.getInputStream());
                 Log.v("CatalogClient", server_response);
             }
@@ -92,7 +95,7 @@ public class CustomAsyncTask extends AsyncTask<String, String, String> {
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
 
-        if(callback != null) {
+        if (callback != null && responseCode == HttpURLConnection.HTTP_OK) {
             try {
                 callback.onEventCompleted(server_response);
             } catch (JSONException e) {
