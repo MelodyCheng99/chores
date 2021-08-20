@@ -19,5 +19,5 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('choresServer.user.urls')),
-    path('tasks/', include('choresServer.tasks.urls'))
+    path('tasks/', include('task.urls'))
 ]
